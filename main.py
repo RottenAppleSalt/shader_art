@@ -1,5 +1,6 @@
 import sys
 import math
+import glm
 
 import pygame as pg
 import moderngl as mgl
@@ -78,6 +79,9 @@ class ShaderArt():
         frame_tex.use(0)
         
         self.uniforms()
+        
+        self.program['iResolution'] = glm.vec2(*WIN_RES)
+        self.program['iTime'] = time
         
         self.render_object.render(mode=mgl.TRIANGLE_STRIP)
         
